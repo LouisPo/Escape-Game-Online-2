@@ -85,15 +85,13 @@ public class DepartPlusMoins extends JFrame {
 		// augmenter le nombre d'essai de 5 , 10 , 15 , 20 et 25
 		// creer parametre selection nombre à rentrer entre 4 et 10
 		comboBox.addItem(0);
-		comboBox.addItem(1);
-		comboBox.addItem(2);
-		comboBox.addItem(3);
-		comboBox.addItem(4);
 		comboBox.addItem(5);
-		/*
-		 * comboBox.addItem(6); comboBox.addItem(7); comboBox.addItem(8);
-		 * comboBox.addItem(9); comboBox.addItem(10);
-		 */
+		comboBox.addItem(10);
+		comboBox.addItem(15);
+		comboBox.addItem(20);
+		comboBox.addItem(25);
+
+		 
 		this.getContentPane().add(comboBox, gbc_comboBox);
 
 		JPanel panel2 = new JPanel();
@@ -113,7 +111,7 @@ public class DepartPlusMoins extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				DepartPlusMoins.compteurmere = Integer.toString(comboBox.getSelectedIndex());
 				InterfacePlusMoins child = new InterfacePlusMoins();
-			//	closeFrame();
+				closeFrame();
 				// this.setContentPane(panel2);
 			}
 		});

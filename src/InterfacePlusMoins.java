@@ -10,27 +10,37 @@ import javax.swing.JPanel;
 import java.awt.GridBagConstraints;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import org.omg.CORBA.portable.ValueOutputStream;
+
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.Random;
-
+import java.awt.event.KeyListener;
 import javax.swing.JButton;
 
 public class InterfacePlusMoins {
 
 	public JFrame frame2;
-	private JTextField usersaisie1;
-	private JTextField usersaisie2;
-	private JTextField usersaisie4;
-	private JTextField usersaisie3;
-	private JTextField usersaisie5;
 	private JTextField usersaisie[];
+	private JLabel essaiuser[];
 
 	/**
 	 * Launch the application.
 	 */
-
+	public void keyTyped(KeyEvent k) 
+	 { 
+		char c = k.getKeyChar();
+        //le caractère est numérique
+        if (c >= '0' && c <= '9') {
+             System.out.println(k);
+        } else {
+            //suppression du caractère
+            k.consume();
+        }
+	 }
 	public InterfacePlusMoins(final DepartPlusMoins mother) {
 
 		final JButton button = new JButton("Action");
@@ -96,148 +106,68 @@ public class InterfacePlusMoins {
 		gbc_lblJeuPlusMoins.gridy = 0;
 		frame2.getContentPane().add(lblJeuPlusMoins, gbc_lblJeuPlusMoins);
 
-		JLabel text1 = new JLabel("Essai 1");
-		text1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_text1 = new GridBagConstraints();
-		gbc_text1.insets = new Insets(0, 0, 5, 5);
-		gbc_text1.gridx = 1;
-		gbc_text1.gridy = 1;
-		frame2.getContentPane().add(text1, gbc_text1);
-
-		JLabel oldresult = new JLabel("");
-		oldresult.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_oldresult = new GridBagConstraints();
-		gbc_oldresult.insets = new Insets(0, 0, 5, 5);
-		gbc_oldresult.gridx = 9;
-		gbc_oldresult.gridy = 1;
-		frame2.getContentPane().add(oldresult, gbc_oldresult);
-
-		
-
-		JLabel text2 = new JLabel("Essai 2");
-		GridBagConstraints gbc_text2 = new GridBagConstraints();
-		gbc_text2.insets = new Insets(0, 0, 5, 5);
-		gbc_text2.gridx = 1;
-		gbc_text2.gridy = 2;
-		frame2.getContentPane().add(text2, gbc_text2);
-
-		JLabel oldresult2 = new JLabel("");
-		oldresult2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_oldresult2 = new GridBagConstraints();
-		gbc_oldresult2.insets = new Insets(0, 0, 5, 5);
-		gbc_oldresult2.gridx = 7;
-		gbc_oldresult2.gridy = 2;
-		frame2.getContentPane().add(oldresult2, gbc_oldresult2);
-
-
-		JLabel label_4 = new JLabel("");
-		label_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_label_4 = new GridBagConstraints();
-		gbc_label_4.insets = new Insets(0, 0, 5, 5);
-		gbc_label_4.gridx = 14;
-		gbc_label_4.gridy = 2;
-		frame2.getContentPane().add(label_4, gbc_label_4);
-
-		JLabel label_1 = new JLabel("");
-		label_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_label_1 = new GridBagConstraints();
-		gbc_label_1.insets = new Insets(0, 0, 5, 0);
-		gbc_label_1.gridx = 15;
-		gbc_label_1.gridy = 2;
-		frame2.getContentPane().add(label_1, gbc_label_1);
-
-		JLabel text3 = new JLabel("Essai 3");
-		GridBagConstraints gbc_text3 = new GridBagConstraints();
-		gbc_text3.insets = new Insets(0, 0, 5, 5);
-		gbc_text3.gridx = 1;
-		gbc_text3.gridy = 3;
-		frame2.getContentPane().add(text3, gbc_text3);
-
-
-
-		JLabel oldresult3 = new JLabel("");
-		oldresult3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_oldresult3 = new GridBagConstraints();
-		gbc_oldresult3.insets = new Insets(0, 0, 5, 5);
-		gbc_oldresult3.gridx = 8;
-		gbc_oldresult3.gridy = 3;
-		frame2.getContentPane().add(oldresult3, gbc_oldresult3);
-
-		JLabel label_2 = new JLabel("");
-		label_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_label_2 = new GridBagConstraints();
-		gbc_label_2.insets = new Insets(0, 0, 5, 5);
-		gbc_label_2.gridx = 11;
-		gbc_label_2.gridy = 3;
-		frame2.getContentPane().add(label_2, gbc_label_2);
-
-
-		JLabel oldresult4 = new JLabel("");
-		oldresult4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_oldresult4 = new GridBagConstraints();
-		gbc_oldresult4.insets = new Insets(0, 0, 5, 5);
-		gbc_oldresult4.gridx = 5;
-		gbc_oldresult4.gridy = 5;
-		frame2.getContentPane().add(oldresult4, gbc_oldresult4);
-
-
-		JLabel oldresult5 = new JLabel("");
-		oldresult5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_oldresult5 = new GridBagConstraints();
-		gbc_oldresult5.insets = new Insets(0, 0, 5, 5);
-		gbc_oldresult5.gridx = 4;
-		gbc_oldresult5.gridy = 7;
-		frame2.getContentPane().add(oldresult5, gbc_oldresult5);
-
-		JLabel label_3 = new JLabel("");
-		label_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.insets = new Insets(0, 0, 5, 5);
-		gbc_label_3.gridx = 6;
-		gbc_label_3.gridy = 7;
-		frame2.getContentPane().add(label_3, gbc_label_3);
-
-
-		JLabel text4 = new JLabel("Essai 4");
-		text4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_text4 = new GridBagConstraints();
-		gbc_text4.insets = new Insets(0, 0, 5, 5);
-		gbc_text4.gridx = 1;
-		gbc_text4.gridy = 5;
-		frame2.getContentPane().add(text4, gbc_text4);
-
-		JLabel text5 = new JLabel("Essai 5");
-		text5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_text5 = new GridBagConstraints();
-		gbc_text5.insets = new Insets(0, 0, 5, 5);
-		gbc_text5.gridx = 1;
-		gbc_text5.gridy = 7;
-		frame2.getContentPane().add(text5, gbc_text5);
-
 		JLabel repfinal = new JLabel("");
 		GridBagConstraints gbc_repfinal = new GridBagConstraints();
 		gbc_repfinal.insets = new Insets(0, 0, 0, 5);
-		gbc_repfinal.gridx = 3;
-		gbc_repfinal.gridy = 9;
+		gbc_repfinal.gridx = 5;
+		gbc_repfinal.gridy = 0;
 		frame2.getContentPane().add(repfinal, gbc_repfinal);
+		//////////////////////////////////////////////////////////////////////////////////
+		//affichage du libelle des essais
+		essaiuser = new JLabel[Integer.parseInt(DepartPlusMoins.compteurmere)];
+		GridBagConstraints gbc_essaiuser = new GridBagConstraints();
+		gbc_essaiuser.insets = new Insets(0, 0, 5, 5);
+		gbc_essaiuser.fill = GridBagConstraints.HORIZONTAL;
+		int kktemp;
+		for (int kk=0;kk<essaiuser.length;kk++){
+			kktemp=kk+1;
+			 essaiuser[kk] = new JLabel("Essai "+kktemp);
+			 gbc_essaiuser.gridx = 1;
+			 gbc_essaiuser.gridy = 1;
+			 gbc_essaiuser.gridy =kk +1;
+				frame2.getContentPane().add(essaiuser[kk], gbc_essaiuser);
+		}
 		
-		
+		///////////////////////////////////////////////////////////////////////////////
+		// affichage des zones de saisie
 		usersaisie = new JTextField[Integer.parseInt(DepartPlusMoins.compteurmere)];
-		System.out.println("taille ded usersaisie  "+usersaisie.length);
+		System.out.println("taille des usersaisie  "+usersaisie.length);
 		GridBagConstraints gbc_usersaisie1 = new GridBagConstraints();
 		gbc_usersaisie1.insets = new Insets(0, 0, 5, 5);
 		gbc_usersaisie1.fill = GridBagConstraints.HORIZONTAL;
-		
+
+
+		 
 		for (int i = 0; i < usersaisie.length; i++) {
-			System.out.println("i vaut  "+i);
-			usersaisie[i] = new JTextField("text"+i);
+			usersaisie[i] = new JTextField("");
+			//usersaisie[i].addKeyListener(keyListener);
 			usersaisie[i].setPreferredSize(new Dimension(200, 24));
 			gbc_usersaisie1.gridx = 3;
 			gbc_usersaisie1.gridy = 1;
 			gbc_usersaisie1.gridy =i +1;
 			frame2.getContentPane().add(usersaisie[i], gbc_usersaisie1);
 		}
-
+		
+		
+		
+/*
+		usersaisie[0].addKeyListener(new KeyListener() {
+        public void keyPressed(KeyEvent e) {};
+        public void keyTyped(KeyEvent e) {
+            if(usersaisie[0].getText().equals("A"))
+            
+            	System.out.println("probleme");
+        }public void keyReleased(KeyEvent e) {
+            if(usersaisie[0].getText().equals("A"))
+            System.out.println("big problem");
+        }
+    });
+		
+	*/	
+		
+		
+/////////////////////////////////////////////////////////////////////////////////////////////
+		
 		frame2.validate();
 		frame2.setVisible(true);
 		// variable comptant le nombre d'essai
@@ -245,12 +175,12 @@ public class InterfacePlusMoins {
 		int compteur = 0;
 		JLabel results[] = new JLabel[Integer.parseInt(DepartPlusMoins.compteurmere)];
 ////////////////////////////////////////////////////////////////////////////////////////////
-
+//affichage resultat exp: +-++
 		GridBagConstraints gbc_result = new GridBagConstraints();
 		gbc_result.insets = new Insets(0, 0, 5, 0);
 		
 		for (int i = 0; i < results.length; i++) {
-			results[i] = new JLabel("results" + i);
+			results[i] = new JLabel("");
 			results[i].setFont(new Font("Tahoma", Font.PLAIN, 14));
 			gbc_result.gridx = 15;
 			gbc_result.gridy = 1;
@@ -279,23 +209,8 @@ public class InterfacePlusMoins {
 				compteur = compteur + 1;
 
 				String recup = "";
-
-				if (compteur == 1) {
-					recup = usersaisie[0].getText();
-				}
-				if (compteur == 2) {
-					recup = usersaisie[1].getText();
-				}
-				if (compteur == 3) {
-					recup = usersaisie[2].getText();
-				}
-				if (compteur == 4) {
-					recup = usersaisie[3].getText();
-				}
-				if (compteur == 5) {
-					recup = usersaisie[4].getText();
-				}
-	
+				recup=usersaisie[compteur-1].getText();
+			
 				System.out.println("recup vaut "+recup+"fin");
 				String essai1;
 				String essai2;
@@ -342,46 +257,8 @@ public class InterfacePlusMoins {
 					} else {
 						resultat = resultat + "-";
 					}
+					results[compteur-1].setText(resultat);
 
-					if (compteur == 1) {
-						//usersaisie1.setEditable(false);
-						results[0].setText(resultat);
-						oldresult.setText(essai1 + essai2 + essai3 + essai4);
-					}
-					if (compteur == 2) {
-						//usersaisie1.setEditable(false);
-						//usersaisie2.setEditable(false);
-						results[1].setText(resultat);
-						oldresult2.setText(recup.substring(0, 1) + recup.substring(1, 2) + recup.substring(2, 3)
-								+ recup.substring(3, 4));
-					}
-					if (compteur == 3) {
-						//usersaisie1.setEditable(false);
-						//usersaisie2.setEditable(false);
-						//usersaisie3.setEditable(false);
-						results[2].setText(resultat);
-						oldresult3.setText(recup.substring(0, 1) + recup.substring(1, 2) + recup.substring(2, 3)
-								+ recup.substring(3, 4));
-					}
-					if (compteur == 4) {
-						//usersaisie1.setEditable(false);
-						//usersaisie2.setEditable(false);
-						//usersaisie3.setEditable(false);
-						//usersaisie4.setEditable(false);
-						results[3].setText(resultat);
-						oldresult4.setText(recup.substring(0, 1) + recup.substring(1, 2) + recup.substring(2, 3)
-								+ recup.substring(3, 4));
-					}
-					if (compteur == 5) {
-						//usersaisie1.setEditable(false);
-						//usersaisie2.setEditable(false);
-						//usersaisie3.setEditable(false);
-						//usersaisie4.setEditable(false);
-						//usersaisie5.setEditable(false);
-						results[4].setText(resultat);
-						oldresult5.setText(recup.substring(0, 1) + recup.substring(1, 2) + recup.substring(2, 3)
-								+ recup.substring(3, 4));
-					}
 					System.out.println("resultat" + resultat);
 					if (resultat.equals("====")) {
 						repfinal.setText("Vous avez gagné");
@@ -391,7 +268,6 @@ public class InterfacePlusMoins {
 						repfinal.setText("Vous avez perdu");
 
 					}
-					//usersaisie1.setText("");
 					System.out.println(compteur);
 				}
 			}
