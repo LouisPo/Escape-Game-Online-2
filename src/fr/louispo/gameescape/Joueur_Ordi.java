@@ -69,12 +69,8 @@ public class Joueur_Ordi extends Joueur {
 		}
 
 		System.out.println("#"+compteurrecup.compteur+" "+propoH+" " + resultat);
-		if (resultat.equals("====")) {
-
-		}
-		if (!resultat.equals("====")) {
-			System.out.println("Mauvaise combinaison");
-		}
+		
+		
 	}
 
 }

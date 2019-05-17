@@ -22,16 +22,14 @@ public class Menu {
 		System.out.println("3 - Quitter");
 		Jeu jeuchoix = new Jeu();
 		Mode challeng = new Mode();
-
+		Mode defens=new Mode();
 		Scanner sc2 = new Scanner(System.in);
 		int choix2 = sc2.nextInt();
-		//jeuchoix.choice(choix2);
-		System.out.println("choix2"+choix2);
 		if (choix2 == 1 && jeuchoix.ModedeJeu == 1) {
 			challeng.challenger();
 
 		}if (choix2 == 1 && jeuchoix.ModedeJeu == 2) {
-			System.out.println("defenseur");
+			defens.defenseur();
 
 		}if (choix2 == 1 && jeuchoix.ModedeJeu == 3) {
 			System.out.println("duel");
@@ -46,7 +44,9 @@ public class Menu {
 			game.choice(choix);
 		}
 		if (choix2 == 3) {
+			System.out.println("vous quittez le jeu.");
 			System.exit(0);
+			
 
 		}
 	}

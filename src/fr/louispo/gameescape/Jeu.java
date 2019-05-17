@@ -24,20 +24,9 @@ public static int ModedeJeu;
 		
 	
 	
-	/*public void menuGen() {
-		System.out.println("choisissez le mode de jeu");
-		System.out.println("1 - Challenger");
-		System.out.println("2 - Defenseur");
-		System.out.println("3 - Duel");
-		System.out.println("4 - Quitter");
-		Scanner sc = new Scanner(System.in);
-		int choix = sc.nextInt();
-		choice(choix);
-	}*/
 
 	public void choice(int choix) {
 		ModedeJeu=choix;
-		System.out.println("choix = " + choix);
 		if (choix == 1) {
 			Mode Challenger = new Mode();
 			Challenger.challenger();
@@ -51,7 +40,10 @@ public static int ModedeJeu;
 		if (choix == 3){
 		}
 		if (choix ==4){
+			System.out.println("vous quittez le jeu.");
 			System.exit (0);
+			
+
 
 		}
 
