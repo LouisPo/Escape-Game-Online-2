@@ -1,6 +1,7 @@
 package fr.louispo.gameescape;
 import java.awt.event.KeyEvent;
 import java.net.SocketTimeoutException;
+import java.util.Properties;
 import java.util.Scanner;
 
 /**
@@ -12,14 +13,13 @@ public class Jeu {
 	 */
 	private int nbessai;
 public static int ModedeJeu;
+static Properties prop;
 	/**
 	 * Le constructeur.
 	 */
 	public Jeu() {
-		nbessai = 3;
 		
 
-	//	menuGen();
 	}
 		
 	
@@ -54,8 +54,31 @@ public static int ModedeJeu;
 	 * @param args Le 1er argument défini si l'application démarre en mode développement.
 	 */
 	public static void main(String[] args) {
+		
+		int i;
+
+	    for (i=0; i < args.length; i++)
+	    {
+	    	System.out.println("parametre"+i+ args[i]);
+	    }
+	   
+		
+		
 		// TODO Auto-generated method stub
 		Jeu game = new Jeu();
+		 try{
+		        // chargement des propriétés
+
+				 Properties prop = new Properties();
+				 prop.load(ClassLoader.getSystemResourceAsStream("fr/louispo/gameescape/properties/config.properties"));
+				 prop.setProperty("modeDev", args[0]);
+		         String recup = prop.getProperty("modeDev");
+		         System.out.println("recup"+recup);
+		        
+		     }
+		     catch(Exception e){
+		        e.printStackTrace();
+		     }
 		Menu menugen = new Menu();
 		menugen.menuGen();
 		Scanner sc = new Scanner(System.in);

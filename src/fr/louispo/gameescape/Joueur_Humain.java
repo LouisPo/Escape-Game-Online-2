@@ -47,7 +47,7 @@ public class Joueur_Humain extends Joueur {
 		} else {
 			nb = borneInf;
 		}
-		return nb;
+		return nb; 
 	}
 
 	public void evaluerordi() {

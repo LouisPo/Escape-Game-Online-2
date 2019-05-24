@@ -1,5 +1,6 @@
 package fr.louispo.gameescape;
 
+import java.util.Properties;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,8 +17,21 @@ public class Joueur {
 	String propoH3;
 	String propoH4;
 	String resultat;
+	String MDev;
 	
-	public void random() {
+	public void random(String mode) {
+		try{
+	         // chargement des propriétés
+	 
+			Properties prop = new Properties();
+			 prop.load(ClassLoader.getSystemResourceAsStream("fr/louispo/gameescape/properties/config.properties"));
+			 MDev= (prop.getProperty("modeDev"));
+			 System.out.println("apres"+MDev);
+	         
+	      }
+	      catch(Exception e){
+	         e.printStackTrace();
+	      }
 		r = new Random();
 		ordi1 = r.nextInt(9);
 		ordi2 = r.nextInt(9);
@@ -26,10 +40,15 @@ public class Joueur {
 		ordi =new int [4];
 		if (ordi1 == 0) {ordi1 = ordi1 + 1;}if (ordi2 == 0) {ordi2 = ordi2 + 1;}
 		if (ordi3 == 0) {ordi3 = ordi3 + 1;}if (ordi4 == 0) {ordi4 = ordi4 + 1;}
-		
-	//	ordi[0]=ordi1;ordi[1]=ordi2;ordi[2]=ordi3;ordi[3]=ordi4;
-	//	System.out.println("" + ordi[0] + ordi[1] + ordi[2] + ordi[3]);
+		System.out.println("sa vaut "+MDev);
+		if(mode.equals("defenseur")){
 		System.out.println("" + ordi1 + ordi2 + ordi3 + ordi4);
+		
+		}
+		if((mode.equals("challenger"))&& (MDev.equals("true"))){
+			System.out.println("" + ordi1 + ordi2 + ordi3 + ordi4);
+
+		}
 	}
 	
 	public void inputuser() {

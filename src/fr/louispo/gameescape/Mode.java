@@ -1,4 +1,6 @@
 package fr.louispo.gameescape;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -17,13 +19,18 @@ public class Mode {
 	static int bornesup3;
 	static int bornesup4;
 	
+	
 public void challenger(){
 	int nbessai = 0;
 	
 	 try{
          // chargement des propriétés
-         Properties prop = Resource.load("src/fr/louispo/gameescape/properties/config.properties");
+ 
+		 Properties prop = new Properties();
+		 prop.load(ClassLoader.getSystemResourceAsStream("fr/louispo/gameescape/properties/config.properties"));
          nbessai= Integer.parseInt(prop.getProperty("nombreEssai"));
+    //     MDev=prop.getProperty("modeDev");
+         
       }
       catch(Exception e){
          e.printStackTrace();
@@ -33,7 +40,7 @@ public void challenger(){
 	System.out.println("entrez 4 entier entre 1 et 9");
 	System.out.println("Historique de vos coups :");
 	Joueur_Ordi Jeu = new Joueur_Ordi();
-	Jeu.random();
+	Jeu.random("challenger");
 	compteur = 0;
 	for (int i = 0; i < nbessai; i++) {
 		compteur = compteur +1;
@@ -48,17 +55,28 @@ public void challenger(){
 }
 
 public void defenseur(){
+	int nbessai = 0;
+	
+	 try{
+        // chargement des propriétés
 
+		 Properties prop = new Properties();
+		 prop.load(ClassLoader.getSystemResourceAsStream("fr/louispo/gameescape/properties/config.properties"));
+        nbessai= Integer.parseInt(prop.getProperty("nombreEssai"));
+        
+     }
+     catch(Exception e){
+        e.printStackTrace();
+     }
     tabborneinf= new int [4];
     tabbornesup= new int [4];
     for (int i = 0; i < 4; i++){
     	tabborneinf[i]=1;tabbornesup[i]=9;
     }
-	int nbessai = 6;
 	Joueur_Humain Jeu = new Joueur_Humain();
 	System.out.println("rentrez votre combinaison secrete");
 		Jeu.inputuser();
-		Jeu.random();
+		Jeu.random("defenseur");
 		for (int i = 0; i < nbessai; i++) {
 
 		Jeu.trouver();
