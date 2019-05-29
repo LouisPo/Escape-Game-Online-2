@@ -3,27 +3,16 @@ package fr.louispo.gameescape;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Joueur_Ordi extends Joueur {
+public class JoueurOrdi extends Joueur {
 
-	int propoH;
-	String propoH1;
-	String propoH2;
-	String propoH3;
-	String propoH4;
-	String resultat;
+	private int propoH;
+	private String propoH1;
+	private String propoH2;
+	private String propoH3;
+	private String propoH4;
+	private String resultat;
 
-	public void inputuser() {
-		Scanner sc = new Scanner(System.in);
-		propoH = sc.nextInt();
-		propoH1 = Integer.toString(propoH).substring(0, 1);
-		propoH2 = Integer.toString(propoH).substring(1, 2);
-		propoH3 = Integer.toString(propoH).substring(2, 3);
-		propoH4 = Integer.toString(propoH).substring(3, 4);
-
-	}
-
-	public void evaluer() {
-		Mode compteurrecup=new Mode();
+	public void evaluer(Mode mode) {
 		if (ordi1 == Integer.parseInt(propoH1)) {
 			resultat = "=";
 		} else if (ordi1 > Integer.parseInt(propoH1)) {
@@ -53,9 +42,12 @@ public class Joueur_Ordi extends Joueur {
 			resultat = resultat + "-";
 		}
 
-		System.out.println("#"+compteurrecup.compteur+" "+propoH+" " + resultat);
-		
-		
+		System.out.println("#" + mode.getCompteur() + " " + propoH + " " + resultat);
 	}
 
+	//-- GETTER and SETTER
+
+	public String getResultat() {
+		return resultat;
+	}
 }
