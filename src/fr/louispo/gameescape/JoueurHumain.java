@@ -3,21 +3,22 @@ package fr.louispo.gameescape;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Joueur_Humain extends Joueur {
-	String signeH;
-	String signeH1;
-	String signeH2;
-	String signeH3;
-	String signeH4;
-	String[] signetabH;
-	int[] find;
-	int find1;
-	int find2;
-	int find3;
-	int find4;
-	int compteur;
-	int nbessai = 6;
-	int sizeGame = 4;
+public class JoueurHumain extends Joueur {
+
+	private String signeH;
+	private String signeH1;
+	private String signeH2;
+	private String signeH3;
+	private String signeH4;
+	private String[] signetabH;
+	private int[] find;
+	private int find1;
+	private int find2;
+	private int find3;
+	private int find4;
+	private int compteur;
+	private int nbessai = 6;
+	private int sizeGame = 4;
 
 	public void trouver() {
 
@@ -50,9 +51,8 @@ public class Joueur_Humain extends Joueur {
 		return nb; 
 	}
 
-	public void evaluerordi() {
+	public void evaluerordi(Mode mode) {
 		int[] find = new int[4];
-		Mode tempmode = new Mode();
 
 		if (signeH1.equals("=")) {
 			find1 = ordi1;
@@ -60,14 +60,14 @@ public class Joueur_Humain extends Joueur {
 			// random superieur
 			int borneInfTemp;
 			borneInfTemp = ordi1 + 1;
-			Mode.tabborneinf[0] = borneInfTemp;
-			ordi1 = genererInt(Mode.tabborneinf[0], Mode.tabbornesup[0]);
+			mode.getTabborneinf()[0] = borneInfTemp;
+			ordi1 = genererInt(mode.getTabborneinf()[0], mode.getTabbornesup()[0]);
 		} else {
 			// random inferieur
 			int borneInfTemp;
-			Mode.tabbornesup[0] = ordi1 - 1;
+			mode.getTabbornesup()[0] = ordi1 - 1;
 			// borneInfTemp=ordi2-1;
-			ordi1 = genererInt(Mode.tabborneinf[0], Mode.tabbornesup[0]);
+			ordi1 = genererInt(mode.getTabborneinf()[0], mode.getTabbornesup()[0]);
 		}
 		
 		
@@ -78,13 +78,13 @@ public class Joueur_Humain extends Joueur {
 			// random superieur
 			int borneInfTemp;
 			borneInfTemp = ordi2 + 1;
-			Mode.tabborneinf[1]= borneInfTemp;
-			ordi2 = genererInt(Mode.tabborneinf[1], Mode.tabbornesup[1]);
+			mode.getTabborneinf()[1]= borneInfTemp;
+			ordi2 = genererInt(mode.getTabborneinf()[1], mode.getTabbornesup()[1]);
 		} else {
 			// random inferieur
 			int borneInfTemp;
-			Mode.tabbornesup[1]= ordi2 - 1;
-			ordi2 = genererInt(Mode.tabborneinf[1], Mode.tabbornesup[1]);
+			mode.getTabbornesup()[1]= ordi2 - 1;
+			ordi2 = genererInt(mode.getTabborneinf()[1], mode.getTabbornesup()[1]);
 		}
 
 		if (signeH3.equals("=")) {
@@ -93,13 +93,13 @@ public class Joueur_Humain extends Joueur {
 			// random superieur
 			int borneInfTemp;
 			borneInfTemp = ordi3 + 1;
-			Mode.tabborneinf[2]= borneInfTemp;
-			ordi3 = genererInt(Mode.tabborneinf[2], Mode.tabbornesup[2]);
+			mode.getTabborneinf()[2]= borneInfTemp;
+			ordi3 = genererInt(mode.getTabborneinf()[2], mode.getTabbornesup()[2]);
 		} else {
 			// random inferieur
 			int borneInfTemp;
-			Mode.tabbornesup[2] = ordi3 - 1;
-			ordi3 = genererInt(Mode.tabborneinf[2], Mode.tabbornesup[2]);
+			mode.getTabbornesup()[2] = ordi3 - 1;
+			ordi3 = genererInt(mode.getTabborneinf()[2], mode.getTabbornesup()[2]);
 		}
 		if (signeH4.equals("=")) {
 			find4 = ordi4;
@@ -107,18 +107,26 @@ public class Joueur_Humain extends Joueur {
 			// random superieur
 			int borneInfTemp;
 			borneInfTemp = ordi4 + 1;
-			Mode.tabborneinf[3]= borneInfTemp;
-			ordi4 = genererInt(Mode.tabborneinf[3], Mode.tabbornesup[3]);
+			mode.getTabborneinf()[3]= borneInfTemp;
+			ordi4 = genererInt(mode.getTabborneinf()[3], mode.getTabbornesup()[3]);
 		} else {
 			// random inferieur
 			int borneInfTemp;
-			Mode.tabbornesup[3] = ordi4 - 1;
-			ordi4 = genererInt(Mode.tabborneinf[3], Mode.tabbornesup[3]);
+			mode.getTabbornesup()[3] = ordi4 - 1;
+			ordi4 = genererInt(mode.getTabborneinf()[3], mode.getTabbornesup()[3]);
 		}
 		compteur = compteur + 1;
 		if (compteur < nbessai) {
 			System.out.println("" + ordi1 + "" + ordi2 + "" + ordi3 + "" + ordi4);
 		}
+	}
 
+	//-- GETTER and SETTER
+	/**
+	 *  A compléter
+	 * @return
+	 */
+	public String getSigneH() {
+		return signeH;
 	}
 }

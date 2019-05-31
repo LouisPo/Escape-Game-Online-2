@@ -1,43 +1,64 @@
 package fr.louispo.gameescape;
 
+
+import fr.louispo.gameescape.beans.Configuration;
+
 import java.util.Scanner;
 
+/**
+ * A compléter
+ */
 public class Menu {
-	public void Menu() {
-		System.out.println("constructeur");
+
+	private Configuration configuration = null;
+
+	/**
+	 * A compléter
+	 */
+	public Menu(Configuration configuration) {
+		this.configuration = configuration;
 	}
 
+	/**
+	 * A compléter
+	 */
 	public void menuGen() {
 		System.out.println("choisissez le mode de jeu");
 		System.out.println("1 - Challenger");
 		System.out.println("2 - Defenseur");
 		System.out.println("3 - Duel");
 		System.out.println("4 - Quitter");
-
 	}
 
-	public void menuFinal() {
+	/**
+	 * A compléter
+	 * @return
+	 */
+	public void menuFinal(Integer modeDeJeu) {
+
 		System.out.println("1 - Rejouez");
 		System.out.println("2 - Menu principal");
 		System.out.println("3 - Quitter");
-		Jeu jeuchoix = new Jeu();
-		Mode challeng = new Mode();
-		Mode defens=new Mode();
+
+		Mode modeChallenger = new Mode(this, configuration);
+		Mode modeDefenseur = new Mode(this, configuration);
+
 		Scanner sc2 = new Scanner(System.in);
 		int choix2 = sc2.nextInt();
-		if (choix2 == 1 && jeuchoix.ModedeJeu == 1) {
-			challeng.challenger();
 
-		}if (choix2 == 1 && jeuchoix.ModedeJeu == 2) {
-			defens.defenseur();
+		if (choix2 == 1 && modeDeJeu == 1) {
+			modeChallenger.challenger();
 
-		}if (choix2 == 1 && jeuchoix.ModedeJeu == 3) {
+		}if (choix2 == 1 && modeDeJeu == 2) {
+			modeDefenseur.defenseur();
+
+		}if (choix2 == 1 && modeDeJeu == 3) {
 			System.out.println("duel");
 
 		}
 		if (choix2 == 2) {
 			Jeu game = new Jeu();
-			Menu menugen = new Menu();
+			Menu menugen = new Menu(configuration);
 			menugen.menuGen();
 			Scanner sc = new Scanner(System.in);
 			int choix = sc.nextInt();
@@ -46,8 +67,6 @@ public class Menu {
 		if (choix2 == 3) {
 			System.out.println("vous quittez le jeu.");
 			System.exit(0);
-			
-
 		}
 	}
 }

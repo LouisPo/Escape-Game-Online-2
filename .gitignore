@@ -1,3 +1,6 @@
+.idea/
+out/
+#
 .settings/
 .classpath
 .project

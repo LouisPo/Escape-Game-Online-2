@@ -1,15 +1,8 @@
-/**
- * 
- */
 package fr.louispo.gameescape.beans;
 
-import java.util.Properties;
-
-import fr.louispo.gameescape.Resource;
-
 /**
+ * Stockage des propriÃ©tÃ©s de l'application.
  * @author Louis
- *
  */
 public class Configuration {
 	private Integer nombreDigit;
@@ -39,14 +32,6 @@ public class Configuration {
 	}
 
 	public void setNombreEssai(Integer nombreEssai) {
-		try{
-	         // chargement des propriétés
-	         Properties prop = Resource.load("src/fr/louispo/gameescape/properties/config.properties");
-	         nombreEssai= Integer.parseInt(prop.getProperty("nombreEssai"));
-	      }
-	      catch(Exception e){
-	         e.printStackTrace();
-	      }
 		this.nombreEssai = nombreEssai;
 	}
 
@@ -57,6 +42,4 @@ public class Configuration {
 	public void setModeDev(Boolean modeDev) {
 		this.modeDev = modeDev;
 	}
-	
-	
 }

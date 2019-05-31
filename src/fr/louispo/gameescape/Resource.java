@@ -1,36 +1,40 @@
 package fr.louispo.gameescape;
 
-import java.util.Properties;
-import java.io.IOException;
-import java.io.FileNotFoundException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
-public class Resource{
+public class Resource {
 
    /**
-    * Charge la liste des propriÈtÈs contenu dans le fichier spÈcifiÈ
+    * Charge la liste des propri√©t√©s contenu dans le fichier sp√©cifi√©
     *
-    * @param filename le fichier contenant les propriÈtÈs
-    * @return un objet Properties contenant les propriÈtÈs du fichier
+    * @param filename le fichier contenant les propri√©t√©s
+    * @return un objet Properties contenant les propri√©t√©s du fichier
     */
-   public static Properties load(String filename) throws IOException, FileNotFoundException{
+   public static Properties load(String filename) throws IOException {
+
       Properties properties = new Properties();
+      FileInputStream fichierProperties = null;
 
-      FileInputStream input = new FileInputStream(filename);
-      try{
-
-         properties.load(input);
-         return properties;
-
+      try {
+         fichierProperties = new FileInputStream(filename);
+         properties.load(fichierProperties);
+      }
+      catch(FileNotFoundException e) {
+         System.out.println("Fichier non trouv√© !!! V√©rifiez le chemin d'acc√®s.");
+      }
+      catch(IOException e) {
+         System.out.println("Autre Exception non catch√©e explicitement. IOException repr√©sente tout type d'exception qui peut survenir.");
+         e.printStackTrace();
+      }
+      finally {
+         if (fichierProperties != null) {
+            fichierProperties.close();
+         }
       }
 
-              finally{
-
-         input.close();
-
-      }
-
+      return properties;
    }
-
-  
 }
