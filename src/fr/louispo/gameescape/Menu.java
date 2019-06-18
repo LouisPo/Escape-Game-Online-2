@@ -65,7 +65,7 @@ public class Menu {
 			game.choice(choix);
 		}
 		if (choix2 == 3) {
-			System.out.println("vous quittez le jeu.");
+			System.out.println("vous avez le jeu.");
 			System.exit(0);
 		}
 	}

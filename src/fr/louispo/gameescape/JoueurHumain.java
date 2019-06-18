@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class JoueurHumain extends Joueur {
 
-	private String signeH;
+	public String signeH;
 	private String signeH1;
 	private String signeH2;
 	private String signeH3;
@@ -19,6 +19,7 @@ public class JoueurHumain extends Joueur {
 	private int compteur;
 	private int nbessai = 6;
 	private int sizeGame = 4;
+	int decompte=2;
 
 	public void trouver() {
 
@@ -116,8 +117,12 @@ public class JoueurHumain extends Joueur {
 			ordi4 = genererInt(mode.getTabborneinf()[3], mode.getTabbornesup()[3]);
 		}
 		compteur = compteur + 1;
-		if (compteur < nbessai) {
-			System.out.println("" + ordi1 + "" + ordi2 + "" + ordi3 + "" + ordi4);
+		
+			if (compteur < nbessai && !(signeH.equals("===="))) {
+				System.out.println("Proposition de l'ordinateur");
+				System.out.println("#"+decompte +" "+ ordi1 + "" + ordi2 + "" + ordi3 + "" + ordi4);
+				decompte=decompte+1;
+			
 		}
 	}
 

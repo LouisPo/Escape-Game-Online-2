@@ -5,12 +5,22 @@ import java.util.Scanner;
 
 public class JoueurOrdi extends Joueur {
 
-	private int propoH;
-	private String propoH1;
-	private String propoH2;
-	private String propoH3;
-	private String propoH4;
-	private String resultat;
+	public int propoH;
+	public String propoH1;
+	public String propoH2;
+	public String propoH3;
+	public String propoH4;
+	public String resultat;
+	
+	public void inputuser() {
+		Scanner sc = new Scanner(System.in);
+		propoH = sc.nextInt();
+		propoH1 = Integer.toString(propoH).substring(0, 1);
+		propoH2 = Integer.toString(propoH).substring(1, 2);
+		propoH3 = Integer.toString(propoH).substring(2, 3);
+		propoH4 = Integer.toString(propoH).substring(3, 4);
+
+	}
 
 	public void evaluer(Mode mode) {
 		if (ordi1 == Integer.parseInt(propoH1)) {

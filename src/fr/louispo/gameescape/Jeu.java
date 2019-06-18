@@ -5,54 +5,62 @@ import fr.louispo.gameescape.beans.Configuration;
 import java.util.Properties;
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * La classe Jeu.
  */
 public class Jeu {
+	
 
 	//-- Les attributs de la classe
+	private static final Logger logger = LogManager.getLogger();
 	private static Configuration configuration;
 	private static Menu menu;
 	private static final String CHEMIN_FICHIER_PROPRIETES = "src/fr/louispo/gameescape/properties/config.properties";
 
 	/**
-	 * Le constructeur par défaut (si on écrivait rien ici, ça fonctionnerait tout de même...
+	 * Le constructeur par d�faut (si on �crivait rien ici, ça fonctionnerait tout de même...
 	 */
-	public Jeu() {}
+	public Jeu() {
+		
+	}
 
 	/**
 	 * Lancement de l'application.
-	 * @param args Le 1er argument défini si l'application démarre en mode développement.
+	 * @param args Le 1er argument d�fini si l'application d�marre en mode d�veloppement.
 	 */
 	public static void main(String[] args) {
-		//-- Récupération du paramètre modeDev au lancement de l'application le cas échéant
+		logger.info("Constructeur du jeu toto");
+		//-- R�cup�ration du paramètre modeDev au lancement de l'application le cas �ch�ant
 		boolean modeDeveloppeur = false;
 
 		if (args.length != 0) {
 			if ("modeDev".equals(args[0])) {
-				System.out.println("Mode développeur activé au lancement de l'application !!!");
+				System.out.println("Mode d�veloppeur activ� au lancement de l'application !!!");
 				modeDeveloppeur = true;
 			}
 		}
 
 		Properties prop = null;
 		try{
-			//-- Chargement des propriétés depuis le fichier
+			//-- Chargement des propri�t�s depuis le fichier
 			prop = Resource.load(CHEMIN_FICHIER_PROPRIETES);
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 
-		//-- Conversion des propriétés dans le bon type de données.
+		//-- Conversion des propri�t�s dans le bon type de donn�es.
 		Integer nombreDigit = Integer.valueOf(prop.getProperty("nombreDigit"));
 		Integer nombreEssai = Integer.valueOf(prop.getProperty("nombreEssai"));
 		boolean modeDev = prop.getProperty("modeDev").equals("true") ? true : false; //-- Expression ternaire
 
-		//-- Initialisation du bean dédiée aux propriétés à transmettre à toutes les classes qui en ont besoin.
+		//-- Initialisation du bean d�di�e aux propri�t�s à transmettre à toutes les classes qui en ont besoin.
 		configuration = new Configuration(nombreDigit, nombreEssai, modeDev);
 
-		//-- Le mode développeur au lancement de la console l'emporte sur le mode développeur du fichier properties...
+		//-- Le mode d�veloppeur au lancement de la console l'emporte sur le mode d�veloppeur du fichier properties...
 		if (modeDeveloppeur) {
 			configuration.setModeDev(true);
 		}
