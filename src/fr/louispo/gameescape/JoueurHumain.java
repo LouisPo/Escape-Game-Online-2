@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class JoueurHumain extends Joueur {
 
 	public String signeH;
-	private String signeH1;
-	private String signeH2;
-	private String signeH3;
-	private String signeH4;
+	public String signeH1;
+	public String signeH2;
+	public String signeH3;
+	public String signeH4;
 	private String[] signetabH;
 	private int[] find;
 	private int find1;
@@ -118,7 +118,7 @@ public class JoueurHumain extends Joueur {
 		}
 		compteur = compteur + 1;
 		
-			if (compteur < nbessai && !(signeH.equals("===="))) {
+			if ((compteur < nbessai) && (!(signeH.equals("===="))) && (!(mode.equals("duel")))) {
 				System.out.println("Proposition de l'ordinateur");
 				System.out.println("#"+decompte +" "+ ordi1 + "" + ordi2 + "" + ordi3 + "" + ordi4);
 				decompte=decompte+1;

@@ -48,7 +48,7 @@ public class Joueur {
 		ordi =new int [4];
 		if (ordi1 == 0) {ordi1 = ordi1 + 1;}if (ordi2 == 0) {ordi2 = ordi2 + 1;}
 		if (ordi3 == 0) {ordi3 = ordi3 + 1;}if (ordi4 == 0) {ordi4 = ordi4 + 1;}
-		if(mode.equals("defenseur")||mode.equals("duel")){
+		if(mode.equals("defenseur")){
 		System.out.println("Proposition de l'ordinateur");
 		System.out.println("#1 " + ordi1 + ordi2 + ordi3 + ordi4);
 		
@@ -65,8 +65,8 @@ public class Joueur {
 	}
 	
 	
-	public void randomordi(String mode) {
-		
+	public void randomordi(Mode mode) {
+		System.out.println("titi");
 		r = new Random();
 		ordiprop1 = r.nextInt(9);
 		ordiprop2 = r.nextInt(9);
@@ -75,11 +75,9 @@ public class Joueur {
 		ordiprop =new int [4];
 		if (ordiprop1 == 0) {ordiprop1 = ordiprop1 + 1;}if (ordiprop2 == 0) {ordiprop2 = ordiprop2 + 1;}
 		if (ordiprop3 == 0) {ordiprop3 = ordiprop3 + 1;}if (ordiprop4 == 0) {ordiprop4 = ordiprop4 + 1;}
-		if(mode.equals("duel")){
 		System.out.println("Proposition de l'ordinateur");
-		System.out.println("#1 " + ordiprop1 + ordiprop2 + ordiprop3 + ordiprop4);
+		System.out.println("#" + (mode.getCompteur()+1) + " " + ordiprop1 + ordiprop2 + ordiprop3 + ordiprop4);
 		
-		}
 		
 	}
 	
@@ -101,7 +99,7 @@ public class Joueur {
 		devine3 = Integer.toString(devine).substring(2, 3);
 		devine4 = Integer.toString(devine).substring(3, 4);
 		//System.out.println(devine);
-		System.out.println("interieur devine " + devine1 + devine2 + devine3 + devine4);
+		
 
 	}
 	
@@ -138,7 +136,7 @@ public class Joueur {
 			resultat = resultat + "-";
 		}
 
-		System.out.println("#" + mode.getCompteur() + " " + devine + " " + resultat);
+		System.out.println("#" + (mode.getCompteur()+1) + " " + devine + " " + resultat);
 	}
 	public String getResultat() {
 		return resultat;

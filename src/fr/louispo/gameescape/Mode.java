@@ -14,8 +14,8 @@ public class Mode {
 	private int nbEssai;
 	private boolean modeDev;
 
-	private int[] tabborneinf;
-	private int[] tabbornesup;
+	public int[] tabborneinf;
+	public int[] tabbornesup;
 
 	/**
 	 *
@@ -97,23 +97,42 @@ public class Mode {
 	public void duel() {
 		int i = 0;
 		System.out.println("Escape Game : Bienvenue");
+		tabborneinf = new int[4];
+		tabbornesup = new int[4];
+		for (int kkk = 0; kkk < 4; kkk++) {
+			tabborneinf[kkk] = 1;
+			tabbornesup[kkk] = 9;
+		}
 		System.out.println("Jeu en cours : Mode Duel en  coups");
 		System.out.println("rentrez votre combinaison secrete");
+
+		JoueurHumain joueurHumain = new JoueurHumain();
 		
 		//Combinaison secrete ordi
 		JoueurOrdi joueurOrdi = new JoueurOrdi();
 		//Combinaison secrete du joueur
-		JoueurHumain Joueur = new JoueurHumain();
-		Joueur.inputuser();
+		JoueurHumain joueur = new JoueurHumain();
+		joueur.inputuser();
 		
 		joueurOrdi.random("duel");
 		for (i = 0; i < 4; i++) {
-			System.out.println("#" + (i + 1) + " Joueur, rentrez votre proposition");
-			Joueur.devine();
-			Joueur.randomordi("");
-			Joueur.evaluerdevine(this);
-			//Joueur.trouver();
-			if (i == 4 - 1 || Joueur.getResultat().equals("====")) {
+			System.out.println("Joueur, rentrez votre proposition");
+			//proposition user
+			joueur.devine();
+			joueur.evaluerdevine(this);
+			if (joueur.getResultat().equals("====")) {
+				menu.menuFinal(3);
+			}
+			
+			joueur.randomordi(this);
+			compteur=compteur +1;
+			joueur.trouver(); 
+			
+	
+			
+		//	joueur.evaluerordi(this);
+			
+			if (i == 4 - 1 ||joueur.getSigneH().equals("====")) {
 				menu.menuFinal(3);
 			}
 		}

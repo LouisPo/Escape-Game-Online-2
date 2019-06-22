@@ -42,6 +42,7 @@ public class Menu {
 
 		Mode modeChallenger = new Mode(this, configuration);
 		Mode modeDefenseur = new Mode(this, configuration);
+		Mode modeDuel = new Mode(this, configuration);
 
 		Scanner sc2 = new Scanner(System.in);
 		int choix2 = sc2.nextInt();
@@ -53,7 +54,7 @@ public class Menu {
 			modeDefenseur.defenseur();
 
 		}if (choix2 == 1 && modeDeJeu == 3) {
-			System.out.println("duel");
+			modeDuel.duel();
 
 		}
 		if (choix2 == 2) {
@@ -65,7 +66,7 @@ public class Menu {
 			game.choice(choix);
 		}
 		if (choix2 == 3) {
-			System.out.println("vous avez le jeu.");
+			System.out.println("vous quittez le jeu.");
 			System.exit(0);
 		}
 	}
