@@ -16,6 +16,12 @@ public class JoueurHumain extends Joueur {
 	private int find2;
 	private int find3;
 	private int find4;
+	
+	private int[] finder;
+	private int finder1;
+	private int finder2;
+	private int finder3;
+	private int finder4;
 	private int compteur;
 	private int nbessai = 6;
 	private int sizeGame = 4;
@@ -34,7 +40,6 @@ public class JoueurHumain extends Joueur {
 		for (int i = 0; i < sizeGame; i++) {
 			signetabH[i] = signeH.substring(i, i + 1);
 		}
-
 	}
 
 	public void fin_partie() {
@@ -133,5 +138,75 @@ public class JoueurHumain extends Joueur {
 	 */
 	public String getSigneH() {
 		return signeH;
+	}
+	
+	
+	
+	
+	public void compareordi(Mode mode) {
+		int[] finder = new int[4];
+
+		if (signeH1.equals("=")) {
+			finder1 = ordiprop1;
+		} else if (signeH1.equals("+")) {
+			// random superieur
+			int borneInfTemp;
+			borneInfTemp = ordiprop1 + 1;
+			mode.getcompareinf()[0] = borneInfTemp;
+			ordiprop1 = genererInt(mode.getcompareinf()[0], mode.getcomparesup()[0]);
+		} else {
+			// random inferieur
+			int borneInfTemp;
+			mode.getcomparesup()[0] = ordiprop1 - 1;
+			// borneInfTemp=ordiprop2-1;
+			ordiprop1 = genererInt(mode.getcompareinf()[0], mode.getcomparesup()[0]);
+		}
+		
+		
+		
+		if (signeH2.equals("=")) {
+			finder2 = ordiprop2;
+		} else if (signeH2.equals("+")) {
+			// random superieur
+			int borneInfTemp;
+			borneInfTemp = ordiprop2 + 1;
+			mode.getcompareinf()[1]= borneInfTemp;
+			ordiprop2 = genererInt(mode.getcompareinf()[1], mode.getcomparesup()[1]);
+		} else {
+			// random inferieur
+			int borneInfTemp;
+			mode.getcomparesup()[1]= ordiprop2 - 1;
+			ordiprop2 = genererInt(mode.getcompareinf()[1], mode.getcomparesup()[1]);
+		}
+
+		if (signeH3.equals("=")) {
+			finder3 = ordiprop3;
+		} else if (signeH3.equals("+")) {
+			// random superieur
+			int borneInfTemp;
+			borneInfTemp = ordiprop3 + 1;
+			mode.getcompareinf()[2]= borneInfTemp;
+			ordiprop3 = genererInt(mode.getcompareinf()[2], mode.getcomparesup()[2]);
+		} else {
+			// random inferieur
+			int borneInfTemp;
+			mode.getcomparesup()[2] = ordiprop3 - 1;
+			ordiprop3 = genererInt(mode.getcompareinf()[2], mode.getcomparesup()[2]);
+		}
+		if (signeH4.equals("=")) {
+			finder4 = ordiprop4;
+		} else if (signeH4.equals("+")) {
+			// random superieur
+			int borneInfTemp;
+			borneInfTemp = ordiprop4 + 1;
+			mode.getcompareinf()[3]= borneInfTemp;
+			ordiprop4 = genererInt(mode.getcompareinf()[3], mode.getcomparesup()[3]);
+		} else {
+			// random inferieur
+			int borneInfTemp;
+			mode.getcomparesup()[3] = ordiprop4 - 1;
+			ordiprop4 = genererInt(mode.getcompareinf()[3], mode.getcomparesup()[3]);
+			
+		}
 	}
 }

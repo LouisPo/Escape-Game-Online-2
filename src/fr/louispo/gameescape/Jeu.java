@@ -32,7 +32,7 @@ public class Jeu {
 	 * @param args Le 1er argument d�fini si l'application d�marre en mode d�veloppement.
 	 */
 	public static void main(String[] args) {
-		logger.info("Constructeur du jeu toto");
+		logger.info("Constructeur du jeu");
 		//-- R�cup�ration du paramètre modeDev au lancement de l'application le cas �ch�ant
 		boolean modeDeveloppeur = false;
 
@@ -98,6 +98,7 @@ public class Jeu {
 				modeDuel.duel();
 			}
 			case 4: {
+				logger.info("fin du jeu");
 				System.out.println("vous quittez le jeu.");
 				System.exit(0);
 			}

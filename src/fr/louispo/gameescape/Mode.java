@@ -1,13 +1,18 @@
 package fr.louispo.gameescape;
 
 import fr.louispo.gameescape.beans.Configuration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  */
 public class Mode {
 
+
 	// -- Les attributs de la classe
+	private static final Logger logger = LogManager.getLogger();
+	private static final String CHEMIN_FICHIER_PROPRIETES = "src/fr/louispo/gameescape/properties/config.properties";
 	private Configuration configuration = null;
 	private Menu menu = null;
 	private int compteur = 0;
@@ -16,6 +21,8 @@ public class Mode {
 
 	public int[] tabborneinf;
 	public int[] tabbornesup;
+	public int[] compareinf;
+	public int[] comparesup;
 
 	/**
 	 *
@@ -32,7 +39,7 @@ public class Mode {
 	 * Gestion du mode Challenger.
 	 */
 	public void challenger() {
-
+		logger.info("Selection du mode challenger");
 		System.out.println("Escape Game : Bienvenue");
 		System.out.println("Jeu en cours : Mode Challenger en " + nbEssai + " coups");
 		System.out.println("entrez 4 entier entre 1 et 9");
@@ -61,6 +68,7 @@ public class Mode {
 	 * Gestion du mode Défenseur.
 	 */
 	public void defenseur() {
+		logger.info("Selection du mode Defenseur");
 		System.out.println("Escape Game : Bienvenue");
 		System.out.println("Jeu en cours : Mode Defenseur en " + nbEssai + " coups");
 		System.out.println("rentrez les indications pour orientez l'ordinateur, pour cela utilisez +,- ou le =");
@@ -95,15 +103,16 @@ public class Mode {
 	 * Gestion du mode Duel.
 	 */
 	public void duel() {
+		logger.info("Selection du mode Duel");
 		int i = 0;
 		System.out.println("Escape Game : Bienvenue");
-		tabborneinf = new int[4];
-		tabbornesup = new int[4];
+		compareinf = new int[4];
+		comparesup = new int[4];
 		for (int kkk = 0; kkk < 4; kkk++) {
-			tabborneinf[kkk] = 1;
-			tabbornesup[kkk] = 9;
+			compareinf[kkk] = 1;
+			comparesup[kkk] = 9;
 		}
-		System.out.println("Jeu en cours : Mode Duel en  coups");
+		System.out.println("Jeu en cours : Mode Duel en "+ nbEssai +" coups");
 		System.out.println("rentrez votre combinaison secrete");
 
 		JoueurHumain joueurHumain = new JoueurHumain();
@@ -115,24 +124,31 @@ public class Mode {
 		joueur.inputuser();
 		
 		joueurOrdi.random("duel");
+		joueur.randomordi(this);
 		for (i = 0; i < 4; i++) {
 			System.out.println("Joueur, rentrez votre proposition");
 			//proposition user
 			joueur.devine();
 			joueur.evaluerdevine(this);
 			if (joueur.getResultat().equals("====")) {
+				System.out.println("Vous avez gagné");
 				menu.menuFinal(3);
 			}
 			
-			joueur.randomordi(this);
 			compteur=compteur +1;
+			System.out.println("Proposition de l'ordinateur");
+			System.out.println("#" + (getCompteur()) + " " + joueur.ordiprop1 + joueur.ordiprop2 + joueur.ordiprop3 + joueur.ordiprop4);
 			joueur.trouver(); 
 			
 	
 			
-		//	joueur.evaluerordi(this);
+			joueur.compareordi(this);
+			if(joueur.getSigneH().equals("====")){
+				System.out.println("l'ordinateur à gagné");
 			
-			if (i == 4 - 1 ||joueur.getSigneH().equals("====")) {
+				menu.menuFinal(3);
+			}else if (i == 4 - 1) {
+				System.out.println("aucun gagnant");
 				menu.menuFinal(3);
 			}
 		}
@@ -162,5 +178,22 @@ public class Mode {
 
 	public void setTabbornesup(int[] tabbornesup) {
 		this.tabbornesup = tabbornesup;
+	}
+	
+	
+	public int[] getcompareinf() {
+		return compareinf;
+	}
+
+	public void setcompareinf(int[] compareinf) {
+		this.compareinf = compareinf;
+	}
+
+	public int[] getcomparesup() {
+		return comparesup;
+	}
+
+	public void setcomparesup(int[] comparesup) {
+		this.comparesup = comparesup;
 	}
 }

@@ -11,11 +11,11 @@ public class Joueur {
 	static int ordi3;
 	static int ordi4;
 	static int [] ordi;
-	int ordiprop1;
-	int ordiprop2;
-	int ordiprop3;
-	int ordiprop4;
-	int [] ordiprop;
+	static int ordiprop1;
+	static int ordiprop2;
+	static int ordiprop3;
+	static int ordiprop4;
+	static int [] ordiprop;
 	int propoH;
 	String propoH1;
 	String propoH2;
@@ -53,10 +53,7 @@ public class Joueur {
 		System.out.println("#1 " + ordi1 + ordi2 + ordi3 + ordi4);
 		
 		}
-		if((mode.equals("challenger"))&& (MDev.equals("true"))){
-			System.out.println("ModeDev " + ordi1 + ordi2 + ordi3 + ordi4);
-
-		}
+		
 		if( (MDev.equals("true"))){
 			System.out.println("ModeDev " + ordi1 + ordi2 + ordi3 + ordi4);
 
@@ -66,7 +63,6 @@ public class Joueur {
 	
 	
 	public void randomordi(Mode mode) {
-		System.out.println("titi");
 		r = new Random();
 		ordiprop1 = r.nextInt(9);
 		ordiprop2 = r.nextInt(9);
@@ -75,8 +71,7 @@ public class Joueur {
 		ordiprop =new int [4];
 		if (ordiprop1 == 0) {ordiprop1 = ordiprop1 + 1;}if (ordiprop2 == 0) {ordiprop2 = ordiprop2 + 1;}
 		if (ordiprop3 == 0) {ordiprop3 = ordiprop3 + 1;}if (ordiprop4 == 0) {ordiprop4 = ordiprop4 + 1;}
-		System.out.println("Proposition de l'ordinateur");
-		System.out.println("#" + (mode.getCompteur()+1) + " " + ordiprop1 + ordiprop2 + ordiprop3 + ordiprop4);
+
 		
 		
 	}
@@ -104,8 +99,6 @@ public class Joueur {
 	}
 	
 	public void evaluerdevine(Mode mode) {
-		System.out.println("essai joueurevaluerordi " + ordi1 + ordi2 + ordi3 + ordi4);
-		System.out.println("joueur evaluerdevine " + devine1 + devine2 + devine3 + devine4);
 
 		if (ordi1 == Integer.parseInt(devine1)) {
 			resultat = "=";

@@ -5,10 +5,15 @@ import fr.louispo.gameescape.beans.Configuration;
 
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * A compléter
  */
 public class Menu {
+	private static final Logger logger = LogManager.getLogger();
+	private static final String CHEMIN_FICHIER_PROPRIETES = "src/fr/louispo/gameescape/properties/config.properties";
 
 	private Configuration configuration = null;
 
@@ -66,6 +71,7 @@ public class Menu {
 			game.choice(choix);
 		}
 		if (choix2 == 3) {
+			logger.info("fin du jeu");
 			System.out.println("vous quittez le jeu.");
 			System.exit(0);
 		}
