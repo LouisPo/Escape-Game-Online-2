@@ -12,7 +12,7 @@ public class Mode {
 
 	// -- Les attributs de la classe
 	private static final Logger logger = LogManager.getLogger();
-	private static final String CHEMIN_FICHIER_PROPRIETES = "src/fr/louispo/gameescape/properties/config.properties";
+	private static final String CHEMIN_FICHIER_PROPRIETES = "fr/louispo/gameescape/properties/config.properties";
 	private Configuration configuration = null;
 	private Menu menu = null;
 	private int compteur = 0;
@@ -50,7 +50,9 @@ public class Mode {
 		for (int i = 0; i < nbEssai; i++) {
 			System.out.println("Joueur rentrez votre proposition: ");
 			compteur = compteur + 1;
-			joueurOrdi.inputuser();
+			while(joueurOrdi.inputuser() == 1){
+				joueurOrdi.inputuser();
+			}
 			joueurOrdi.evaluer(this);
 			if (i == nbEssai - 1 && !(joueurOrdi.getResultat().equals("===="))) {
 				System.out.println("Vous avez perdu");
@@ -81,7 +83,9 @@ public class Mode {
 		}
 		JoueurHumain joueurHumain = new JoueurHumain();
 		System.out.println("rentrez votre combinaison secrete");
-		joueurHumain.inputuser();
+		while(joueurHumain.inputuser() == 1){
+			joueurHumain.inputuser();
+		}
 		joueurHumain.random("defenseur");
 		for (int i = 0; i < nbEssai; i++) {
 
@@ -121,14 +125,18 @@ public class Mode {
 		JoueurOrdi joueurOrdi = new JoueurOrdi();
 		//Combinaison secrete du joueur
 		JoueurHumain joueur = new JoueurHumain();
-		joueur.inputuser();
+		while(joueurHumain.inputuser() == 1){
+			joueurHumain.inputuser();
+		}
 		
 		joueurOrdi.random("duel");
 		joueur.randomordi(this);
 		for (i = 0; i < 4; i++) {
-			System.out.println("Joueur, rentrez votre proposition");
+			System.out.println("[challenger] Joueur, rentrez votre proposition");
 			//proposition user
-			joueur.devine();
+			while(joueur.devine()==1){
+				joueur.devine();
+			}
 			joueur.evaluerdevine(this);
 			if (joueur.getResultat().equals("====")) {
 				System.out.println("Vous avez gagné");
@@ -136,7 +144,7 @@ public class Mode {
 			}
 			
 			compteur=compteur +1;
-			System.out.println("Proposition de l'ordinateur");
+			System.out.println("[défenseur] Proposition de l'ordinateur");
 			System.out.println("#" + (getCompteur()) + " " + joueur.ordiprop1 + joueur.ordiprop2 + joueur.ordiprop3 + joueur.ordiprop4);
 			joueur.trouver(); 
 			

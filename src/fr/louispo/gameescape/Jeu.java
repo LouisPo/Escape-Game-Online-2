@@ -21,7 +21,7 @@ public class Jeu {
 	private static final String CHEMIN_FICHIER_PROPRIETES = "src/fr/louispo/gameescape/properties/config.properties";
 
 	/**
-	 * Le constructeur par d�faut (si on �crivait rien ici, ça fonctionnerait tout de même...
+	 * Le constructeur par défaut (si on �crivait rien ici, ça fonctionnerait tout de même...
 	 */
 	public Jeu() {
 		
@@ -29,38 +29,38 @@ public class Jeu {
 
 	/**
 	 * Lancement de l'application.
-	 * @param args Le 1er argument d�fini si l'application d�marre en mode d�veloppement.
+	 * @param args Le 1er argument défini si l'application démarre en mode développement.
 	 */
 	public static void main(String[] args) {
 		logger.info("Constructeur du jeu");
-		//-- R�cup�ration du paramètre modeDev au lancement de l'application le cas �ch�ant
+		//-- Récupération du paramètre modeDev au lancement de l'application le cas échéant
 		boolean modeDeveloppeur = false;
 
 		if (args.length != 0) {
 			if ("modeDev".equals(args[0])) {
-				System.out.println("Mode d�veloppeur activ� au lancement de l'application !!!");
+				System.out.println("Mode développeur activé au lancement de l'application !!!");
 				modeDeveloppeur = true;
 			}
 		}
 
 		Properties prop = null;
 		try{
-			//-- Chargement des propri�t�s depuis le fichier
+			//-- Chargement des propriétés depuis le fichier
 			prop = Resource.load(CHEMIN_FICHIER_PROPRIETES);
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 
-		//-- Conversion des propri�t�s dans le bon type de donn�es.
+		//-- Conversion des propriétés dans le bon type de données.
 		Integer nombreDigit = Integer.valueOf(prop.getProperty("nombreDigit"));
 		Integer nombreEssai = Integer.valueOf(prop.getProperty("nombreEssai"));
 		boolean modeDev = prop.getProperty("modeDev").equals("true") ? true : false; //-- Expression ternaire
 
-		//-- Initialisation du bean d�di�e aux propri�t�s à transmettre à toutes les classes qui en ont besoin.
+		//-- Initialisation du bean dédiée aux propriétés à transmettre à toutes les classes qui en ont besoin.
 		configuration = new Configuration(nombreDigit, nombreEssai, modeDev);
 
-		//-- Le mode d�veloppeur au lancement de la console l'emporte sur le mode d�veloppeur du fichier properties...
+		//-- Le mode développeur au lancement de la console l'emporte sur le mode développeur du fichier properties...
 		if (modeDeveloppeur) {
 			configuration.setModeDev(true);
 		}

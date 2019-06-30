@@ -4,6 +4,8 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.Scanner;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Joueur {
 	Random r;
 	static int ordi1;
@@ -28,6 +30,7 @@ public class Joueur {
 	static String devine2;
 	static String devine3;
 	static String devine4;
+	public String nbDigit;
 	
 	public void random(String mode) {
 		try{
@@ -36,6 +39,7 @@ public class Joueur {
 			Properties prop = new Properties();
 			 prop.load(ClassLoader.getSystemResourceAsStream("fr/louispo/gameescape/properties/config.properties"));
 			 MDev= (prop.getProperty("modeDev"));
+			 nbDigit= (prop.getProperty("nombreDigit"));
 	      }
 	      catch(Exception e){
 	         e.printStackTrace();
@@ -76,17 +80,60 @@ public class Joueur {
 		
 	}
 	
-	public void inputuser() {
+	public int inputuser() {
+		String propoHessai;
 		Scanner sc = new Scanner(System.in);
-		propoH = sc.nextInt();
-		propoH1 = Integer.toString(propoH).substring(0, 1);
-		propoH2 = Integer.toString(propoH).substring(1, 2);
-		propoH3 = Integer.toString(propoH).substring(2, 3);
-		propoH4 = Integer.toString(propoH).substring(3, 4);
+		propoHessai = sc.nextLine();
+		if (((StringUtils.isNumeric(propoHessai)))){
+		    propoH = Integer.parseInt(propoHessai);
+	    }
+		
+		if ((!(StringUtils.isNumeric(propoHessai)))  || (Integer.toString(propoH).length()!=4)) {
+		//probleme de saisie
+			System.out.println("rentrez un nombre comprenant "+ 4+" chiffres ");
+			return 1;
 
+		}
+		else{
+			//saisie correcte
+			//propoH = Integer.parseInt(propoHessai);
+			//StringUtils.is(Integer.toString(propoH));
+			propoH1 = Integer.toString(propoH).substring(0, 1);
+			propoH2 = Integer.toString(propoH).substring(1, 2);
+			propoH3 = Integer.toString(propoH).substring(2, 3);
+			propoH4 = Integer.toString(propoH).substring(3, 4);			
+			
+			return 0;	
+		}
+	}
+	public int devine() {
+		String devineH;
+		Scanner sc = new Scanner(System.in);
+		devineH = sc.nextLine();
+		if (((StringUtils.isNumeric(devineH)))){
+			devine = Integer.parseInt(devineH);
+	    }
+		
+		if ((!(StringUtils.isNumeric(devineH)))  || (Integer.toString(devine).length()>4)  ||  (Integer.toString(devine).length()<4)) {
+		//probleme de saisie
+			System.out.println("rentrez un nombre comprenant "+ nbDigit+" chiffres ");
+			return 1;
+
+		}
+		else{
+			//saisie correcte
+			//propoH = Integer.parseInt(propoHessai);
+			//StringUtils.is(Integer.toString(propoH));
+			devine1 = Integer.toString(devine).substring(0, 1);
+			devine2 = Integer.toString(devine).substring(1, 2);
+			devine3 = Integer.toString(devine).substring(2, 3);
+			devine4 = Integer.toString(devine).substring(3, 4);			
+			
+			return 0;	
+		}
 	}
 	
-	public void devine(){
+	/*public void devine(){
 		Scanner sc = new Scanner(System.in);
 		devine = sc.nextInt();
 		devine1 = Integer.toString(devine).substring(0, 1);
@@ -94,9 +141,9 @@ public class Joueur {
 		devine3 = Integer.toString(devine).substring(2, 3);
 		devine4 = Integer.toString(devine).substring(3, 4);
 		//System.out.println(devine);
-		
+		}*/
 
-	}
+	
 	
 	public void evaluerdevine(Mode mode) {
 

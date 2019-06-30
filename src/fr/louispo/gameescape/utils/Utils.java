@@ -1,5 +1,9 @@
 package fr.louispo.gameescape.utils;
 
+import java.util.Properties;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * La classe utilitaire.
  * @author Louis 
@@ -30,4 +34,6 @@ public class Utils {
 	        //  Handle any exceptions.
 	    }
 	}
+	
+
 }
