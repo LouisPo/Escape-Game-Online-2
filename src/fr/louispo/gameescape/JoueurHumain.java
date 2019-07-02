@@ -27,21 +27,54 @@ public class JoueurHumain extends Joueur {
 	private int sizeGame = 4;
 	int decompte=2;
 
-	public void trouver() {
+	public int trouver() {
 
-		System.out.println("rentrez les indications");
+		
 		Scanner sc = new Scanner(System.in);
 		signeH = sc.nextLine();
-		signeH1 = signeH.substring(0, 1);
-		signeH2 = signeH.substring(1, 2);
-		signeH3 = signeH.substring(2, 3);
-		signeH4 = signeH.substring(3, 4);
-		signetabH = new String[4];
-		for (int i = 0; i < sizeGame; i++) {
-			signetabH[i] = signeH.substring(i, i + 1);
+		if(signeH.length()!=4){
+			System.out.println("rentrez 4 indications avec uniquement +, - ou =");
+			return 1;
+		
+		}
+		else{
+			signeH1 = signeH.substring(0, 1);
+			signeH2 = signeH.substring(1, 2);
+			signeH3 = signeH.substring(2, 3);
+			signeH4 = signeH.substring(3, 4);
+			
+			signetabH = new String[4];
+			for (int i = 0; i < sizeGame; i++) {
+				signetabH[i] = signeH.substring(i, i + 1);
+			}
+			
+			
+			return verifsigne(signeH1,signeH2,signeH3,signeH4);
 		}
 	}
 
+	public int verifsigne(String s1,String s2,String s3,String s4){
+		int retour=0;
+		if(!((s1.equals("+"))||(s1.equals("-"))||(s1.equals("=")))){
+			retour=1;
+		}
+		if(!((s2.equals("+"))||(s2.equals("-"))||(s2.equals("=")))){
+			retour=1;
+		}
+		if(!((s3.equals("+"))||(s3.equals("-"))||(s3.equals("=")))){
+			retour=1;
+		}
+		if(!((s4.equals("+"))||(s4.equals("-"))||(s4.equals("=")))){
+			retour=1;	
+		}
+		if(retour==1){
+			System.out.println("rentrez 4 indications avec uniquement +, - ou =");	
+		}
+		return retour;
+		
+	}
+	
+	
 	public void fin_partie() {
 
 	}

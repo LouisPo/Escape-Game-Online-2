@@ -35,7 +35,6 @@ public class JoueurOrdi extends Joueur {
 		if (((StringUtils.isNumeric(propoHessai)))){
 		    propoH = Integer.parseInt(propoHessai);
 	    }
-		
 		if ((!(StringUtils.isNumeric(propoHessai)))  || (Integer.toString(propoH).length()!=4)) {
 		//probleme de saisie
 			System.out.println("rentrez un nombre comprenant "+ 4+" chiffres ");

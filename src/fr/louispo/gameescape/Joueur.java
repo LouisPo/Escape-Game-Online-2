@@ -94,7 +94,7 @@ public class Joueur {
 			return 1;
 
 		}
-		else{
+		else{   
 			//saisie correcte
 			//propoH = Integer.parseInt(propoHessai);
 			//StringUtils.is(Integer.toString(propoH));
@@ -116,7 +116,7 @@ public class Joueur {
 		
 		if ((!(StringUtils.isNumeric(devineH)))  || (Integer.toString(devine).length()>4)  ||  (Integer.toString(devine).length()<4)) {
 		//probleme de saisie
-			System.out.println("rentrez un nombre comprenant "+ nbDigit+" chiffres ");
+			System.out.println("rentrez un nombre comprenant "+ 4+" chiffres ");
 			return 1;
 
 		}

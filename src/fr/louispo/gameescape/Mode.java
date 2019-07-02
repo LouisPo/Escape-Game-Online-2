@@ -50,8 +50,7 @@ public class Mode {
 		for (int i = 0; i < nbEssai; i++) {
 			System.out.println("Joueur rentrez votre proposition: ");
 			compteur = compteur + 1;
-			while(joueurOrdi.inputuser() == 1){
-				joueurOrdi.inputuser();
+			while(joueurOrdi.inputuser() == 1){				
 			}
 			joueurOrdi.evaluer(this);
 			if (i == nbEssai - 1 && !(joueurOrdi.getResultat().equals("===="))) {
@@ -82,14 +81,14 @@ public class Mode {
 			tabbornesup[i] = 9;
 		}
 		JoueurHumain joueurHumain = new JoueurHumain();
-		System.out.println("rentrez votre combinaison secrete");
+		System.out.println("rentrez votre combinaison secrete de 4 chiffres de 0 à 9");
 		while(joueurHumain.inputuser() == 1){
-			joueurHumain.inputuser();
 		}
 		joueurHumain.random("defenseur");
 		for (int i = 0; i < nbEssai; i++) {
-
-			joueurHumain.trouver();
+			System.out.println("rentrez les indications avec +, - ou =");
+			while(joueurHumain.trouver() ==1){
+			}
 			joueurHumain.evaluerordi(this);
 			if (i == nbEssai - 1 && !(joueurHumain.getSigneH().equals("===="))) {
 				System.out.println("L'ordinateur à perdu");
@@ -117,7 +116,7 @@ public class Mode {
 			comparesup[kkk] = 9;
 		}
 		System.out.println("Jeu en cours : Mode Duel en "+ nbEssai +" coups");
-		System.out.println("rentrez votre combinaison secrete");
+		System.out.println("rentrez votre combinaison secrete de 4 chiffres de 0 à 9");
 
 		JoueurHumain joueurHumain = new JoueurHumain();
 		
@@ -126,16 +125,14 @@ public class Mode {
 		//Combinaison secrete du joueur
 		JoueurHumain joueur = new JoueurHumain();
 		while(joueurHumain.inputuser() == 1){
-			joueurHumain.inputuser();
 		}
 		
 		joueurOrdi.random("duel");
 		joueur.randomordi(this);
 		for (i = 0; i < 4; i++) {
-			System.out.println("[challenger] Joueur, rentrez votre proposition");
+			System.out.println("[challenger] Joueur, rentrez votre proposition  de 4 chiffres de 0 à 9");
 			//proposition user
 			while(joueur.devine()==1){
-				joueur.devine();
 			}
 			joueur.evaluerdevine(this);
 			if (joueur.getResultat().equals("====")) {
@@ -146,7 +143,9 @@ public class Mode {
 			compteur=compteur +1;
 			System.out.println("[défenseur] Proposition de l'ordinateur");
 			System.out.println("#" + (getCompteur()) + " " + joueur.ordiprop1 + joueur.ordiprop2 + joueur.ordiprop3 + joueur.ordiprop4);
-			joueur.trouver(); 
+			while(joueur.trouver()==1){
+				
+			}
 			
 	
 			
