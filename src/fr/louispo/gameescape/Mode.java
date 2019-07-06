@@ -4,28 +4,55 @@ import fr.louispo.gameescape.beans.Configuration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+// TODO: Auto-generated Javadoc
 /**
- *
+ * La classe Mode.
  */
 public class Mode {
-
+     
 
 	// -- Les attributs de la classe
+	/** The Constant logger. */
 	private static final Logger logger = LogManager.getLogger();
-	private static final String CHEMIN_FICHIER_PROPRIETES = "fr/louispo/gameescape/properties/config.properties";
+	
+	/** The Constant CHEMIN_FICHIER_PROPRIETES. */
+	private static final String CHEMIN_FICHIER_PROPRIETES = "config.properties";
+	
+	/** The configuration. */
 	private Configuration configuration = null;
+	
+	/** The menu. */
 	private Menu menu = null;
+	
+	/** The compteur. */
 	private int compteur = 0;
+	
+	/** The nb essai. */
 	private int nbEssai;
+	
+	/** The mode dev. */
 	private boolean modeDev;
 
+	/** The tabborneinf. */
 	public int[] tabborneinf;
+	
+	/** The tabbornesup. */
 	public int[] tabbornesup;
+	
+	/** The compareinf. */
 	public int[] compareinf;
+	
+	/** The comparesup. */
 	public int[] comparesup;
 
 	/**
+	 * Instantiates a new mode.
 	 *
+	 * @param menu the menu
+	 * @param configuration the configuration
+	 */
+	/**
+	 * @param menu
 	 * @param configuration
 	 */
 	public Mode(Menu menu, Configuration configuration) {
@@ -37,6 +64,9 @@ public class Mode {
 
 	/**
 	 * Gestion du mode Challenger.
+	 */
+	/**
+	 * 
 	 */
 	public void challenger() {
 		logger.info("Selection du mode challenger");
@@ -67,6 +97,9 @@ public class Mode {
 
 	/**
 	 * Gestion du mode Défenseur.
+	 */
+	/**
+	 * 
 	 */
 	public void defenseur() {
 		logger.info("Selection du mode Defenseur");
@@ -104,6 +137,9 @@ public class Mode {
 
 	/**
 	 * Gestion du mode Duel.
+	 */
+	/**
+	 * 
 	 */
 	public void duel() {
 		logger.info("Selection du mode Duel");
@@ -163,43 +199,93 @@ public class Mode {
 
 	// -- GETTER && SETTER
 
+	/**
+	 * Gets the compteur.
+	 *
+	 * @return the compteur
+	 */
 	public int getCompteur() {
 		return compteur;
 	}
 
+	/**
+	 * Sets the compteur.
+	 *
+	 * @param compteur the new compteur
+	 */
 	public void setCompteur(int compteur) {
 		this.compteur = compteur;
 	}
 
+	/**
+	 * Gets the tabborneinf.
+	 *
+	 * @return the tabborneinf
+	 */
 	public int[] getTabborneinf() {
 		return tabborneinf;
 	}
 
+	/**
+	 * Sets the tabborneinf.
+	 *
+	 * @param tabborneinf the new tabborneinf
+	 */
 	public void setTabborneinf(int[] tabborneinf) {
 		this.tabborneinf = tabborneinf;
 	}
 
+	/**
+	 * Gets the tabbornesup.
+	 *
+	 * @return the tabbornesup
+	 */
 	public int[] getTabbornesup() {
 		return tabbornesup;
 	}
 
+	/**
+	 * Sets the tabbornesup.
+	 *
+	 * @param tabbornesup the new tabbornesup
+	 */
 	public void setTabbornesup(int[] tabbornesup) {
 		this.tabbornesup = tabbornesup;
 	}
 	
 	
+	/**
+	 * Gets the compareinf.
+	 *
+	 * @return the compareinf
+	 */
 	public int[] getcompareinf() {
 		return compareinf;
 	}
 
+	/**
+	 * Sets the compareinf.
+	 *
+	 * @param compareinf the new compareinf
+	 */
 	public void setcompareinf(int[] compareinf) {
 		this.compareinf = compareinf;
 	}
 
+	/**
+	 * Gets the comparesup.
+	 *
+	 * @return the comparesup
+	 */
 	public int[] getcomparesup() {
 		return comparesup;
 	}
 
+	/**
+	 * Sets the comparesup.
+	 *
+	 * @param comparesup the new comparesup
+	 */
 	public void setcomparesup(int[] comparesup) {
 		this.comparesup = comparesup;
 	}

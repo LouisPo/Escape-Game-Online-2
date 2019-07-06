@@ -199,3 +199,34 @@
 16:16:01.060 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode Duel
 16:16:17.336 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
 16:16:18.547 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode Duel
+19:14:51.606 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+19:21:26.344 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+19:21:28.118 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode challenger
+19:23:45.992 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+19:23:47.564 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode challenger
+19:28:06.168 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+19:28:08.151 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode challenger
+19:40:05.801 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+19:48:08.389 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+19:48:09.769 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode challenger
+08:45:37.712 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+08:45:40.366 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode challenger
+08:45:55.874 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+08:45:57.051 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode challenger
+08:46:04.194 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode Defenseur
+08:46:26.044 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Menu - fin du jeu
+08:46:33.041 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+08:46:34.035 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode Duel
+08:47:21.502 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode Duel
+08:47:29.669 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode Duel
+08:47:58.238 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Menu - fin du jeu
+09:29:49.396 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+09:29:52.297 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode challenger
+09:31:08.715 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+09:31:10.769 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode challenger
+09:31:23.133 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode Defenseur
+09:31:30.005 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode Duel
+09:31:39.589 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Menu - fin du jeu
+09:56:12.956 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+09:56:18.403 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode challenger
+09:56:25.079 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Menu - fin du jeu

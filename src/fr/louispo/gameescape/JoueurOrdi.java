@@ -6,24 +6,43 @@ import java.util.Scanner;
 
 
 import org.apache.commons.lang3.StringUtils;
-
+// TODO: Auto-generated Javadoc
+/**
+ * La classe JoueurOrdi.
+ */
 public class JoueurOrdi extends Joueur {
 
+	/** The propo H. */
 	public int propoH;
+	
+	/** The propo H 1. */
 	public String propoH1;
+	
+	/** The propo H 2. */
 	public String propoH2;
+	
+	/** The propo H 3. */
 	public String propoH3;
+	
+	/** The propo H 4. */
 	public String propoH4;
+	
+	/** The resultat. */
 	public String resultat;
+	
+	/** The nb digit. */
 	public String nbDigit;
 	
+	/* (non-Javadoc)
+	 * @see fr.louispo.gameescape.Joueur#inputuser()
+	 */
 	public int inputuser() {
 		
 		try{
 	         // chargement des propriétés
 	 
-			Properties prop = new Properties();
-			 prop.load(ClassLoader.getSystemResourceAsStream("fr/louispo/gameescape/properties/config.properties"));
+			Properties prop = null;
+			 prop= Resource.load("config.properties");
 			 nbDigit= (prop.getProperty("nombreDigit"));
 	      }
 	      catch(Exception e){
@@ -55,6 +74,11 @@ public class JoueurOrdi extends Joueur {
 	}
 	
 
+	/**
+	 * Evaluer.
+	 *
+	 * @param mode the mode
+	 */
 	public void evaluer(Mode mode) {
 		if (ordi1 == Integer.parseInt(propoH1)) {
 			resultat = "=";
@@ -90,6 +114,9 @@ public class JoueurOrdi extends Joueur {
 
 	//-- GETTER and SETTER
 
+	/* (non-Javadoc)
+	 * @see fr.louispo.gameescape.Joueur#getResultat()
+	 */
 	public String getResultat() {
 		return resultat;
 	}

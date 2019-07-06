@@ -5,39 +5,95 @@ import java.util.Random;
 import java.util.Scanner;
 
 import org.apache.commons.lang3.StringUtils;
-
+// TODO: Auto-generated Javadoc
+/**
+ *
+ */
 public class Joueur {
+	
+	/** The r. */
 	Random r;
+	
+	/** The ordi 1. */
 	static int ordi1;
+	
+	/** The ordi 2. */
 	static int ordi2;
+	
+	/** The ordi 3. */
 	static int ordi3;
+	
+	/** The ordi 4. */
 	static int ordi4;
+	
+	/** The ordi. */
 	static int [] ordi;
+	
+	/** The ordiprop 1. */
 	static int ordiprop1;
+	
+	/** The ordiprop 2. */
 	static int ordiprop2;
+	
+	/** The ordiprop 3. */
 	static int ordiprop3;
+	
+	/** The ordiprop 4. */
 	static int ordiprop4;
+	
+	/** The ordiprop. */
 	static int [] ordiprop;
+	
+	/** The propo H. */
 	int propoH;
+	
+	/** The propo H 1. */
 	String propoH1;
+	
+	/** The propo H 2. */
 	String propoH2;
+	
+	/** The propo H 3. */
 	String propoH3;
+	
+	/** The propo H 4. */
 	String propoH4;
+	
+	/** The resultat. */
 	String resultat;
+	
+	/** The M dev. */
 	String MDev;
+	
+	/** The devine. */
 	static int devine;
+	
+	/** The devine 1. */
 	static String devine1;
+	
+	/** The devine 2. */
 	static String devine2;
+	
+	/** The devine 3. */
 	static String devine3;
+	
+	/** The devine 4. */
 	static String devine4;
+	
+	/** The nb digit. */
 	public String nbDigit;
 	
+	/**
+	 * Random.
+	 *
+	 * @param mode the mode
+	 */
 	public void random(String mode) {
 		try{
 	         // chargement des propriétés
 	 
-			Properties prop = new Properties();
-			 prop.load(ClassLoader.getSystemResourceAsStream("fr/louispo/gameescape/properties/config.properties"));
+			Properties prop = null;
+			 prop= Resource.load("config.properties");
 			 MDev= (prop.getProperty("modeDev"));
 			 nbDigit= (prop.getProperty("nombreDigit"));
 	      }
@@ -66,6 +122,11 @@ public class Joueur {
 	}
 	
 	
+	/**
+	 * Randomordi.
+	 *
+	 * @param mode the mode
+	 */
 	public void randomordi(Mode mode) {
 		r = new Random();
 		ordiprop1 = r.nextInt(9);
@@ -80,6 +141,11 @@ public class Joueur {
 		
 	}
 	
+	/**
+	 * Inputuser.
+	 *
+	 * @return the int
+	 */
 	public int inputuser() {
 		String propoHessai;
 		Scanner sc = new Scanner(System.in);
@@ -106,6 +172,12 @@ public class Joueur {
 			return 0;	
 		}
 	}
+	
+	/**
+	 * Devine.
+	 *
+	 * @return the int
+	 */
 	public int devine() {
 		String devineH;
 		Scanner sc = new Scanner(System.in);
@@ -131,20 +203,13 @@ public class Joueur {
 			
 			return 0;	
 		}
-	}
+	}	
 	
-	/*public void devine(){
-		Scanner sc = new Scanner(System.in);
-		devine = sc.nextInt();
-		devine1 = Integer.toString(devine).substring(0, 1);
-		devine2 = Integer.toString(devine).substring(1, 2);
-		devine3 = Integer.toString(devine).substring(2, 3);
-		devine4 = Integer.toString(devine).substring(3, 4);
-		//System.out.println(devine);
-		}*/
-
-	
-	
+	/**
+	 * Evaluerdevine.
+	 *
+	 * @param mode the mode
+	 */
 	public void evaluerdevine(Mode mode) {
 
 		if (ordi1 == Integer.parseInt(devine1)) {
@@ -178,6 +243,12 @@ public class Joueur {
 
 		System.out.println("#" + (mode.getCompteur()+1) + " " + devine + " " + resultat);
 	}
+	
+	/**
+	 * Gets the resultat.
+	 *
+	 * @return the resultat
+	 */
 	public String getResultat() {
 		return resultat;
 	}

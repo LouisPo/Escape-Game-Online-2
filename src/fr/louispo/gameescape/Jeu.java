@@ -18,10 +18,10 @@ public class Jeu {
 	private static final Logger logger = LogManager.getLogger();
 	private static Configuration configuration;
 	private static Menu menu;
-	private static final String CHEMIN_FICHIER_PROPRIETES = "src/fr/louispo/gameescape/properties/config.properties";
+	private static final String CHEMIN_FICHIER_PROPRIETES = "config.properties";
 
 	/**
-	 * Le constructeur par défaut (si on �crivait rien ici, ça fonctionnerait tout de même...
+	 * Le constructeur par défaut (si on écrivait rien ici, ça fonctionnerait tout de même...
 	 */
 	public Jeu() {
 		

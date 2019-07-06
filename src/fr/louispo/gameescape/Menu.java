@@ -8,24 +8,38 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+// TODO: Auto-generated Javadoc
 /**
- * A compléter
+ * La classe Menu.
  */
 public class Menu {
+	
+	/** The Constant logger. */
 	private static final Logger logger = LogManager.getLogger();
+	
+	/** The Constant CHEMIN_FICHIER_PROPRIETES. */
 	private static final String CHEMIN_FICHIER_PROPRIETES = "src/fr/louispo/gameescape/properties/config.properties";
 
+	/** The configuration. */
 	private Configuration configuration = null;
 
 	/**
-	 * A compléter
+	 * A compléter.
+	 *
+	 * @param configuration the configuration
+	 */
+	/**
+	 * @param configuration
 	 */
 	public Menu(Configuration configuration) {
 		this.configuration = configuration;
 	}
 
 	/**
-	 * A compléter
+	 * A compléter.
+	 */
+	/**
+	 * 
 	 */
 	public void menuGen() {
 		System.out.println("choisissez le mode de jeu");
@@ -36,8 +50,12 @@ public class Menu {
 	}
 
 	/**
-	 * A compléter
-	 * @return
+	 * A compléter.
+	 *
+	 * @param modeDeJeu the mode de jeu
+	 */
+	/**
+	 * @param modeDeJeu
 	 */
 	public void menuFinal(Integer modeDeJeu) {
 

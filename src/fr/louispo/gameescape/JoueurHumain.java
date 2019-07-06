@@ -3,30 +3,74 @@ package fr.louispo.gameescape;
 import java.util.Random;
 import java.util.Scanner;
 
+// TODO: Auto-generated Javadoc
 public class JoueurHumain extends Joueur {
 
+	/** The signe H. */
 	public String signeH;
+	
+	/** The signe H 1. */
 	public String signeH1;
+	
+	/** The signe H 2. */
 	public String signeH2;
+	
+	/** The signe H 3. */
 	public String signeH3;
+	
+	/** The signe H 4. */
 	public String signeH4;
+	
+	/** The signetab H. */
 	private String[] signetabH;
+	
+	/** The find. */
 	private int[] find;
+	
+	/** The find 1. */
 	private int find1;
+	
+	/** The find 2. */
 	private int find2;
+	
+	/** The find 3. */
 	private int find3;
+	
+	/** The find 4. */
 	private int find4;
 	
+	/** The finder. */
 	private int[] finder;
+	
+	/** The finder 1. */
 	private int finder1;
+	
+	/** The finder 2. */
 	private int finder2;
+	
+	/** The finder 3. */
 	private int finder3;
+	
+	/** The finder 4. */
 	private int finder4;
+	
+	/** The compteur. */
 	private int compteur;
+	
+	/** The nbessai. */
 	private int nbessai = 6;
+	
+	/** The size game. */
 	private int sizeGame = 4;
+	
+	/** The decompte. */
 	int decompte=2;
 
+	/**
+	 * Trouver.
+	 *
+	 * @return the int
+	 */
 	public int trouver() {
 
 		
@@ -53,6 +97,15 @@ public class JoueurHumain extends Joueur {
 		}
 	}
 
+	/**
+	 * Verifsigne.
+	 *
+	 * @param s1 the s 1
+	 * @param s2 the s 2
+	 * @param s3 the s 3
+	 * @param s4 the s 4
+	 * @return the int
+	 */
 	public int verifsigne(String s1,String s2,String s3,String s4){
 		int retour=0;
 		if(!((s1.equals("+"))||(s1.equals("-"))||(s1.equals("=")))){
@@ -75,10 +128,20 @@ public class JoueurHumain extends Joueur {
 	}
 	
 	
+	/**
+	 * Fin partie.
+	 */
 	public void fin_partie() {
 
 	}
 
+	/**
+	 * Generer int.
+	 *
+	 * @param borneInf the borne inf
+	 * @param borneSup the borne sup
+	 * @return the int
+	 */
 	int genererInt(int borneInf, int borneSup) {
 		Random random = new Random();
 		int nb;
@@ -90,6 +153,11 @@ public class JoueurHumain extends Joueur {
 		return nb; 
 	}
 
+	/**
+	 * Evaluerordi.
+	 *
+	 * @param mode the mode
+	 */
 	public void evaluerordi(Mode mode) {
 		int[] find = new int[4];
 
@@ -165,9 +233,11 @@ public class JoueurHumain extends Joueur {
 	}
 
 	//-- GETTER and SETTER
+
 	/**
-	 *  A compléter
-	 * @return
+	 * Gets the signe H.
+	 *
+	 * @return the signe H
 	 */
 	public String getSigneH() {
 		return signeH;
@@ -176,6 +246,11 @@ public class JoueurHumain extends Joueur {
 	
 	
 	
+	/**
+	 * Compareordi.
+	 *
+	 * @param mode the mode
+	 */
 	public void compareordi(Mode mode) {
 		int[] finder = new int[4];
 
