@@ -15,7 +15,9 @@ public class Jeu {
 	
 
 	//-- Les attributs de la classe
-	private static final Logger logger = LogManager.getLogger();
+	private static final org.apache.logging.log4j.Logger logger = org.apache.logging.log4j.LogManager.getLogger();
+	
+
 	private static Configuration configuration;
 	private static Menu menu;
 	private static final String CHEMIN_FICHIER_PROPRIETES = "config.properties";
