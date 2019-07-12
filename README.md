@@ -31,3 +31,9 @@ Dans la console, taper la commande
 
 Le menu general du jeu s'affiche.
 
+## Lancement de l'application dans un IDE
+
+Dans votre IDE, creer un nouveau projet, selectionner le avec le clic gauche, faite un clic droit sur le projet puis selectionner **import**.
+Choisissez ensuite le dossier du projet a importer, choisisser **selectionner un dossier**, cochez la case a cote du dossier, cliquez sur finish.
+Ouvrez le dossier source jusqu'a trouver la **classe Jeu**, puis lancez l'application en appuyant sur le bouton **run**.
+

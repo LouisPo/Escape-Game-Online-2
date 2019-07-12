@@ -245,3 +245,5 @@
 14:06:09.987 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode Defenseur
 14:07:46.647 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode Duel
 14:08:21.231 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - fin du jeu
+13:35:20.373 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Jeu - Constructeur du jeu
+13:35:35.386 [EscapeGame v1.0] INFO  fr.louispo.gameescape.Mode - Selection du mode challenger
